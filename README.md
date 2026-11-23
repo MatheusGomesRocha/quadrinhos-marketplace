@@ -6,7 +6,7 @@ Marketplace completo com três perfis (comprador, vendedor e administrador), fei
 
 ## Testar a demo
 
-Abra a demo publicada (GitHub Pages deste repositório) e entre com qualquer conta, senha `demo123`:
+A demo (sem backend) fica em outro repositório: https://github.com/MatheusGomesRocha/quadrinhos-marketplace-demo (publicada no GitHub Pages dele). Entre com qualquer conta, senha `demo123`:
 
 | Perfil | E-mail |
 | --- | --- |

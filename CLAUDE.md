@@ -64,7 +64,7 @@ Contas do seed (senha `demo123`): `admin@mkt.demo`, `vendedor1..4@mkt.demo` (apr
 - `packages/core/src/testes/contrato-repo.ts`: contrato que toda implementação de repo precisa cumprir.
 - `apps/api/src/testes/`: SQL sobre **SQLite em memória** (`node:sqlite`, mesmas migrações traduzidas), API HTTP ponta a ponta, e MySQL real **opcional**: `TEST_MYSQL=1 DB_NAME=banco_de_teste npm test` (⚠ o banco é limpo a cada teste: use um descartável).
 - Ao pedir uma regra nova: escreva primeiro o teste em `suite-regras.ts` (usa `criarAmbiente` com relógio falso), depois implemente no serviço.
-- O CI (`.github/workflows/ci.yml`) roda typecheck, testes e build da demo.
+- O CI (`.github/workflows/ci.yml`) roda typecheck, testes e build. A demo publicada vive no repositório `quadrinhos-marketplace-demo`.
 
 ## Convenções
 
