@@ -1,0 +1,24 @@
+{
+  "name": "marketplace-quadrinhos",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "workspaces": ["packages/*", "apps/*"],
+  "scripts": {
+    "dev:api": "npm run dev -w @mkt/api",
+    "dev:web": "npm run dev -w @mkt/web",
+    "dev:demo": "npm run dev:demo -w @mkt/web",
+    "build:demo": "npm run build:demo -w @mkt/web",
+    "migrar": "npm run migrar -w @mkt/api",
+    "seed": "npm run seed -w @mkt/api",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  }
+}
