@@ -14,8 +14,12 @@ export const bancoParaIso = (v: unknown): string => {
   return `${String(v).replace(' ', 'T')}${String(v).endsWith('Z') ? '' : 'Z'}`;
 };
 
+/** Campos que o código trata como lista (ex.: fotos da avaliação) ficam guardados como JSON em TEXT. */
+const ehJson = (campo: string) => campo === 'fotos';
+
 const paraBanco = (campo: string, v: unknown) => {
   if (v === undefined) return null;
+  if (ehJson(campo)) return JSON.stringify(v ?? []);
   return ehData(campo) && typeof v === 'string' ? isoParaBanco(v) : v;
 };
 
@@ -23,7 +27,7 @@ function linhaParaObjeto<T>(linha: Record<string, unknown>): T {
   const o: Record<string, unknown> = {};
   for (const [coluna, valor] of Object.entries(linha)) {
     const campo = paraCamel(coluna);
-    o[campo] = ehData(campo) && valor !== null && valor !== undefined ? bancoParaIso(valor) : valor;
+    o[campo] = ehJson(campo) ? (valor ? JSON.parse(String(valor)) : []) : ehData(campo) && valor !== null && valor !== undefined ? bancoParaIso(valor) : valor;
   }
   return o as T;
 }

@@ -24,7 +24,7 @@ export function criarApp({ servicos, jwtSegredo = config.jwtSegredo, jwtExpira =
   if (confiarProxy) app.set('trust proxy', 1);
   app.disable('x-powered-by');
   app.use(cors({ origin: origensCors }));
-  app.use(express.json({ limit: '100kb' }));
+  app.use(express.json({ limit: '2mb' }));
 
   app.get('/api/saude', (_req, res) => res.json({ ok: true }));
 
